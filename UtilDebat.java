@@ -331,6 +331,7 @@ public class UtilDebat {
 
         catch(FileNotFoundException e){
             System.out.println("Le fichier n'existe pas"); // Quand pas de fichier, ressaisir le nom du fichier
+            System.exit(i);
         }
         catch(IOException e){
             System.out.println("Il y a un problème dans la lecture du fichier");
@@ -530,17 +531,11 @@ public class UtilDebat {
     public static File getFichier(Scanner sc){
         File f = null;
         String nomFichier =  null;
-        boolean condition =false;
-        do{
-            if(condition){
-                System.out.println("Le fichier n'existe pas");
-            }
-            condition = true;
-            System.out.println("Veuillez saisir le nom du fichier");
-            nomFichier = sc.nextLine();
-            f = new File(nomFichier);
-           
-        }while (!f.exists());
+        
+            
+        System.out.println("Veuillez saisir le nom du fichier");
+        nomFichier = sc.nextLine();
+        f = new File(nomFichier);
         
         return f;
     }

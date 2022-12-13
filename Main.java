@@ -110,6 +110,7 @@ public class Main {
             UtilDebat.lireFichier(fichier, listeArgument);
             boucle = true;
             boolean solDejaDemande = false;
+            ArrayList <Argument> ensembleESauvegarde = new ArrayList<Argument>();
             while(boucle){
 
                 try{
@@ -125,6 +126,7 @@ public class Main {
                             dejaVu.clear();
                             solAdmissible =UtilDebat.solutionAdmissible(dejaVu,listeSolution);
                         }
+                        ensembleESauvegarde=solAdmissible;
                         String chaine = "";
                         for (int i=0; i<solAdmissible.size();i++){
                             chaine+=solAdmissible.get(i);
@@ -147,6 +149,7 @@ public class Main {
                             dejaVuPref.clear();
                             ensembleE =UtilDebat.solutionPref(dejaVuPref,listeSolution);
                          }
+                         ensembleESauvegarde = ensembleE;
                          String chaine="";
                          for (int i=0; i<ensembleE.size();i++){
                              chaine+=ensembleE.get(i);
@@ -168,7 +171,7 @@ public class Main {
                             System.out.println("Veuiller entrer le chemin du fichier ");
                             sc.nextLine(); //on vide le buffer
                             String lien =sc.nextLine();
-                            UtilDebat.sauvegarde(ensembleE, lien);
+                            UtilDebat.sauvegarde(ensembleESauvegarde, lien);
                         }
                         else{
                             System.out.println("Veuillez séléctionner d'abord le choix 1 ou 2");
